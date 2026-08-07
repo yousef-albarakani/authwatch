@@ -1,10 +1,11 @@
 """
 AuthWatch main execution module.
 """
- 
+
 import json
 
 from analyzer import analyze_events
+from reporting import save_report
 
 
 def load_logs(file_path):
@@ -41,6 +42,13 @@ def main():
     print("\nRisk Assessment:")
     print(f"Risk Score: {result['risk']['risk_score']}")
     print(f"Risk Level: {result['risk']['risk_level']}")
+
+    report_file = save_report(
+        result["alerts"],
+        result["risk"]
+    )
+
+    print(f"\nReport saved to: {report_file}")
 
 
 if __name__ == "__main__":

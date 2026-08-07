@@ -3,25 +3,23 @@ Blocklisted IP detection rule.
 """
 
 
-def detect_blocklisted_ip(event, blocklist):
-    """
-    Detect authentication attempts from known malicious IP addresses.
+BLOCKLISTED_IPS = [
+    "8.8.8.8",
+    "192.168.1.50"
+]
 
-    Args:
-        event: authentication event
-        blocklist: list of blocked IP addresses
 
-    Returns:
-        Detection alert if IP is blocklisted.
-    """
+def detect_blocklisted_ip(events):
 
-    ip_address = event.get("ip")
+    alerts = []
 
-    if ip_address in blocklist:
-        return {
-            "alert": "Blocklisted IP Address Detected",
-            "severity": "High",
-            "ip": ip_address
-        }
+    for event in events:
+        if event.get("ip") in BLOCKLISTED_IPS:
+            alerts.append({
+                "alert": "Blocklisted IP Detected",
+                "severity": "Medium",
+                "ip": event.get("ip"),
+                "username": event.get("username")
+            })
 
-    return None
+    return alerts

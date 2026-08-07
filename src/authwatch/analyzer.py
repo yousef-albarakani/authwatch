@@ -1,10 +1,20 @@
 """
-Detection analysis engine.
+Authentication log parser module.
 """
 
+import json
 
-def analyze_event(event):
+
+def parse_logs(file_path):
     """
-    Analyze authentication events.
+    Read authentication logs from JSONL file.
     """
-    return []
+
+    events = []
+
+    with open(file_path, "r") as file:
+        for line in file:
+            event = json.loads(line)
+            events.append(event)
+
+    return events

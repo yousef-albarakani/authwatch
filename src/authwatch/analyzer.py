@@ -5,6 +5,8 @@ AuthWatch detection analyzer.
 from detectors.brute_force import detect_brute_force
 from detectors.blocklist import detect_blocklisted_ip
 from detectors.impossible_travel import detect_impossible_travel
+from detectors.new_country import detect_new_country
+from detectors.admin_login import detect_admin_login
 
 
 def analyze_events(events):
@@ -27,5 +29,15 @@ def analyze_events(events):
 
     if impossible_travel_alert:
         alerts.append(impossible_travel_alert)
+
+    # New country login detection
+    new_country_alerts = detect_new_country(events)
+
+    alerts.extend(new_country_alerts)
+
+    # Administrator login detection
+    admin_alerts = detect_admin_login(events)
+
+    alerts.extend(admin_alerts)
 
     return alerts

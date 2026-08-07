@@ -7,6 +7,7 @@ from detectors.blocklist import detect_blocklisted_ip
 from detectors.impossible_travel import detect_impossible_travel
 from detectors.new_country import detect_new_country
 from detectors.admin_login import detect_admin_login
+from risk import calculate_risk_score
 
 
 def analyze_events(events):
@@ -40,4 +41,10 @@ def analyze_events(events):
 
     alerts.extend(admin_alerts)
 
-    return alerts
+    # Risk scoring
+    risk_result = calculate_risk_score(alerts)
+
+    return {
+        "alerts": alerts,
+        "risk": risk_result
+    }

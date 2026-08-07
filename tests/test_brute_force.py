@@ -4,7 +4,7 @@ Brute force detection rule.
 
 
 def detect_brute_force(events, threshold=5):
-
+ 
     failed_attempts = 0
 
     for event in events:

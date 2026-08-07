@@ -1,7 +1,7 @@
 """
 AuthWatch main execution module.
 """
-
+ 
 import json
 
 from analyzer import analyze_events

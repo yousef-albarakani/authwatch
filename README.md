@@ -1,8 +1,4 @@
-معك حق. سأعطيك **رسالة واحدة جاهزة للصق مباشرة** بدون أي شرح.
-
-احذف كل محتوى `README.md` والصق هذا كاملًا:
-
-```markdown
+markdown
 # AuthWatch
 
 > Defensive Python tool for detecting suspicious Windows authentication activity.
@@ -158,21 +154,3 @@ The sample authentication data used by the project is synthetic and intended for
 Cybersecurity Student  
 Asia Pacific University (APU)
 
-## Disclaimer
-
-AuthWatch is a defensive cybersecurity project created for educational and authorized security-monitoring purposes.
-```
-
-بعد اللصق مباشرة:
-
-**Commit message:**
-
-```text
-Build initial AuthWatch project documentation
-```
-
-ثم:
-
-✅ Commit directly to the main branch
-
-ثم Commit changes.

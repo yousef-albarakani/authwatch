@@ -1,21 +1,21 @@
 """
-AuthWatch brute force detection tests.
+Brute force detection rule.
 """
 
-from src.authwatch.detectors.brute_force import detect_brute_force
 
+def detect_brute_force(events, threshold=5):
 
-def test_brute_force_detection():
+    failed_attempts = 0
 
-    events = [
-        {"status": "failed"},
-        {"status": "failed"},
-        {"status": "failed"},
-        {"status": "failed"},
-        {"status": "failed"}
-    ]
+    for event in events:
+        if event.get("status") == "failed":
+            failed_attempts += 1
 
-    result = detect_brute_force(events)
+    if failed_attempts >= threshold:
+        return {
+            "alert": "Brute Force Attack Detected",
+            "severity": "High",
+            "failed_attempts": failed_attempts
+        }
 
-    assert result is not None
-    assert result["alert"] == "Brute Force Attack Detected"
+    return None

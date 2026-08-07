@@ -1,27 +1,38 @@
 """
 Administrator login detection rule.
+
+Detects authentication events involving privileged administrator accounts.
 """
 
 
-def detect_admin_login(event):
-    """
-    Detect authentication events involving administrator accounts.
+def detect_admin_login(events):
 
-    Args:
-        event: authentication event
+    alerts = []
 
-    Returns:
-        Detection alert if administrator login is detected.
-    """
+    admin_accounts = [
+        "admin",
+        "administrator",
+        "root",
+        "system",
+        "superuser"
+    ]
 
-    username = event.get("username")
-    role = event.get("role")
+    for event in events:
 
-    if role == "admin":
-        return {
-            "alert": "Administrator Login Detected",
-            "severity": "Medium",
-            "username": username
-        }
+        username = event.get("username")
 
-    return None
+        if not username:
+            continue
+
+        if username.lower() in admin_accounts:
+
+            alerts.append({
+                "alert": "Administrator Login Detected",
+                "severity": "High",
+                "username": username,
+                "ip": event.get("ip"),
+                "country": event.get("country"),
+                "message": "Privileged administrator account login detected"
+            })
+
+    return alerts

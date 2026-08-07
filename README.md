@@ -1,5 +1,8 @@
-هل هذا النص كامل
+معك حق. سأعطيك **رسالة واحدة جاهزة للصق مباشرة** بدون أي شرح.
 
+احذف كل محتوى `README.md` والصق هذا كاملًا:
+
+```markdown
 # AuthWatch
 
 > Defensive Python tool for detecting suspicious Windows authentication activity.
@@ -34,34 +37,54 @@ Authentication Logs
    Risk Assessment
         ↓
      Alert Output
-Project Goals
+```
+
+## Project Goals
+
 The main goals of AuthWatch are to demonstrate practical skills in:
-Security log analysis
-Threat detection
-Python programming
-Detection engineering
-SOC analyst workflows
-Security automation
-Incident investigation
-MITRE ATT&CK mapping
-Example Detection Scenarios
-Brute Force
+
+- Security log analysis
+- Threat detection
+- Python programming
+- Detection engineering
+- SOC analyst workflows
+- Security automation
+- Incident investigation
+- MITRE ATT&CK mapping
+
+## Example Detection Scenarios
+
+### Brute Force
+
 Detects repeated failed authentication attempts that may indicate a password-guessing attack.
-Blocklisted IP
+
+### Blocklisted IP
+
 Identifies authentication activity originating from IP addresses contained in a security blocklist.
-Impossible Travel
+
+### Impossible Travel
+
 Detects suspicious authentication events where the geographic distance and timing between logins are not realistically possible.
-New Country Login
+
+### New Country Login
+
 Flags authentication activity originating from a country that has not previously been associated with the user.
-Administrator Login
+
+### Administrator Login
+
 Highlights authentication events involving privileged administrator accounts for additional review.
-Technology Stack
-Python
-JSONL authentication logs
-Unit testing
-MITRE ATT&CK
-Command-line interface
-Project Structure
+
+## Technology Stack
+
+- Python
+- JSONL authentication logs
+- Unit testing
+- MITRE ATT&CK
+- Command-line interface
+
+## Project Structure
+
+```text
 authwatch/
 ├── README.md
 ├── requirements.txt
@@ -91,45 +114,65 @@ authwatch/
 ├── docs/
 │
 └── screenshots/
-MITRE ATT&CK
+```
+
+## MITRE ATT&CK
+
 Detection logic will be mapped to relevant MITRE ATT&CK techniques where appropriate.
+
 This mapping will help demonstrate how individual detections relate to real-world adversary behavior.
-Testing
+
+## Testing
+
 The project will include automated tests for detection logic and core functionality.
+
 Testing will help ensure that detection rules behave consistently as the project evolves.
-Defensive Purpose
+
+## Defensive Purpose
+
 AuthWatch is intended for defensive security education, security monitoring, and controlled laboratory environments.
+
 The sample authentication data used by the project is synthetic and intended for safe demonstrations.
-Roadmap
 
-Initial project concept
+## Roadmap
 
-Authentication log parser
+- [x] Initial project concept
+- [ ] Authentication log parser
+- [ ] Brute-force detection
+- [ ] Blocklisted IP detection
+- [ ] Impossible-travel detection
+- [ ] New-country detection
+- [ ] Administrator-login detection
+- [ ] Risk scoring
+- [ ] MITRE ATT&CK mapping
+- [ ] Unit tests
+- [ ] Reporting improvements
+- [ ] Documentation
+- [ ] Screenshots
+- [ ] First release
 
-Brute-force detection
+## Author
 
-Blocklisted IP detection
+**Yousef Haroon Al-Barakani**
 
-Impossible-travel detection
-
-New-country detection
-
-Administrator-login detection
-
-Risk scoring
-
-MITRE ATT&CK mapping
-
-Unit tests
-
-Reporting improvements
-
-Documentation
-
-Screenshots
-
-First release
-Author
-Yousef Haroon Al-Barakani
-Cybersecurity Student
+Cybersecurity Student  
 Asia Pacific University (APU)
+
+## Disclaimer
+
+AuthWatch is a defensive cybersecurity project created for educational and authorized security-monitoring purposes.
+```
+
+بعد اللصق مباشرة:
+
+**Commit message:**
+
+```text
+Build initial AuthWatch project documentation
+```
+
+ثم:
+
+✅ Commit directly to the main branch
+
+ثم Commit changes.

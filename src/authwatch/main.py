@@ -4,8 +4,8 @@ AuthWatch main execution module.
 
 import json
 
-from analyzer import analyze_events
-from reporting import save_report
+from .analyzer import analyze_events
+from .reporting import save_report
 
 
 def load_logs(file_path):
